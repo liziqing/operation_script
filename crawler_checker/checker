@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+from pymongo import MongoClient
+import sys, getopt
+
+from shiji_mongo_regulation import MongoRegulation
+from pylogger import Pylogger
+#from command_args import CommandArgs
+from pysys_checker import Pysys
+
+connection = MongoClient('127.0.0.1', 27017)
+db = connection.shiji_shop
+goods = db.goods
+# colors = db.goods_colors
+# skus = db.skus
+
+logger = Pylogger().init_log(sys.argv)
+mongoRegulation = MongoRegulation()
+
+print '\nStarting to check collection goods'
+for good in goods.find():
+    mongoRegulation.item_checker(good, db, logger)
+print 'Successfully goods checked done!\n'
+# print '---------------------------------------------------\n'
+
+# print 'Starting to check collection goods_colors'
+# for color in colors.find():
+#     mongoRegulation.color_checker(color, logger)
+# print 'Successfully goods checked done!'
+# print '---------------------------------------------------\n'
+
+# print 'Starting to check collection skus'
+# for sku in skus.find():
+#     mongoRegulation.sku_checker(sku, logger)
+# print 'Successfully goods checked done!'
+# print "---------------------------------------------------\n"
+
+
+
+	
+		
