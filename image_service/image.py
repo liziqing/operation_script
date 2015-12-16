@@ -11,11 +11,11 @@ class HandlingImageService:
 
 	DEL_KEY = [
 		'bq:crawler_handle_image:stallTime',
-		# 'bq:crawler_handle_image:stalling',
-		# 'bq:crawler_handle_image:failed',
-		# 'bq:crawler_handle_image:id',
-		# 'bq:crawler_handle_image:jobs',
-		# 'bq:crawler_handle_image:active'
+		'bq:crawler_handle_image:stalling',
+		'bq:crawler_handle_image:failed',
+		'bq:crawler_handle_image:id',
+		'bq:crawler_handle_image:jobs',
+		'bq:crawler_handle_image:active'
 		]
 
 	final_crawler_handle_image = {}
